@@ -1,0 +1,31 @@
+currency-exchange-service
+http://localhost:8000/currency-exchange/from/AUD/to/INR
+
+currency-conversion-service
+http://localhost:8100/currency-conversion/from/AUD/to/INR/quantity/10
+use this for hardcoded without naming @FeignClient(name="currency-exchange", url="localhost:8000")
+http://localhost:8100/currency-conversion-feign/from/AUD/to/INR/quantity/10
+
+eureka
+http://localhost:8761
+
+api-gateway
+http://localhost:8765/CURRENCY-EXCHANGE/currency-exchange/from/AUD/to/INR
+http://localhost:8765/CURRENCY-CONVERSION/currency-conversion/from/AUD/to/INR/quantity/10
+http://localhost:8765/CURRENCY-CONVERSION/currency-conversion-feign/from/AUD/to/INR/quantity/10
+
+http://localhost:8765/currency-exchange/currency-exchange/from/AUD/to/INR
+http://localhost:8765/currency-conversion/currency-conversion/from/AUD/to/INR/quantity/10
+http://localhost:8765/currency-conversion/currency-conversion-feign/from/AUD/to/INR/quantity/10
+
+
+
+
+--create two microservices
+--starter openfeign is used to communicating between microservices
+--naming server and service registry---A Service Registry is a central database or directory where microservices register themselves and discover other services dynamically.
+creating several instances of the service which can help load banlancing  with naming server 
+--API gateway--For implementing authtication,authrization for all urls,
+Route use to routing the service.one of the service need to route with another name by using routing
+Logging all the urls/application by implementing logger. It should be implement in api gateway service
+--circuit breaker  --resilience4j  dependency is used for cricuit breker.when one of the service is down, we can send default response by using circuit breaker mechanism
