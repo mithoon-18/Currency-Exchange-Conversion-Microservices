@@ -1,5 +1,6 @@
 # Currency-Exchange-Conversion-Microservices
 This project demonstrates a microservices architecture using Spring Boot and Spring Cloud.
+
 It provides two core services:
 
 Currency Exchange Service → provides exchange rates between currencies.
